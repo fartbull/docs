@@ -147,40 +147,6 @@ Governance does **not** control protocol upgrades, fee parameters, or program co
 
 Solana token holder balances are resolved from SPL **token accounts** / **Associated Token Accounts** associated with the token mint. The governance system must resolve token accounts to their owners correctly — do not assume single-account-per-owner semantics; an owner may hold tokens across multiple token accounts.
 
----
-
-## System Architecture
-
-```mermaid
-graph TD
-    subgraph "Application Layer"
-        A1[Frontend (fartbull.xyz)]
-        A2[API (api.fartbull.xyz)]
-    end
-
-    subgraph "On-Chain (Solana)"
-        A2 --> B1[Token Factory Program]
-        B1 --> B2[SPL Token Mint<br/>via SPL Token Program]
-        B1 --> B3[Bonding Curve State PDA]
-        B3 --> B4[Fee Program]
-        B3 --> B5[Migration Program]
-        B5 --> B6[Solana DEX / AMM]
-        B4 --> B7[Social Registry Program]
-        B1 --> B8[Agent PDA]
-        B1 --> B9[Asset Registry PDA]
-    end
-
-    style A1 fill:#e8f4fd
-    style B1 fill:#fff3e0
-    style B2 fill:#fff3e0
-    style B3 fill:#fff3e0
-    style B4 fill:#e8f5e9
-    style B5 fill:#e8f5e9
-    style B6 fill:#e8f5e9
-    style B7 fill:#e8f5e9
-    style B8 fill:#e8f5e9
-    style B9 fill:#e8f5e9
-```
 
 ---
 
